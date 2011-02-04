@@ -17,13 +17,18 @@
 
 " Number of spaces that a pre-existing tab is equal to.
 " For the amount of space used for a new tab use shiftwidth.
-au BufRead,BufNewFile *py,*pyw,*.c,*.h,*html,*js set tabstop=8
+au BufRead,BufNewFile *.c,*.h set tabstop=8
+au BufRead,BufNewFile *py,*pyw set tabstop=4
+au BufRead,BufNewFile *py,*pyw set softtabstop=4
+au BufRead,BufNewFile *html,*js set tabstop=2
+au BufRead,BufNewFile *html,*js set softtabstop=2
 
 " What to use for an indent.
 " This will affect Ctrl-T and 'autoindent'.
 " Python: 4 spaces
 " C: tabs (pre-existing files) or 4 spaces (new files)
-au BufRead,BufNewFile *.py,*pyw,*.html,*.js set shiftwidth=4
+au BufRead,BufNewFile *.py,*pyw set shiftwidth=4
+au BufRead,BufNewFile *.html,*.js set shiftwidth=2
 au BufRead,BufNewFile *.py,*.pyw,*.html,*.js set expandtab
 fu Select_c_style()
     if search('^\t', 'n', 150)
@@ -86,7 +91,7 @@ let python_highlight_all=1
 syntax on
 
 " Automatically indent based on file type: 
-"filetype indent on
+filetype indent on
 " Keep indentation level from previous line: 
 "set autoindent
 
@@ -116,7 +121,7 @@ set softtabstop=4
 " setlocal expandtab
 " setlocal smartindent
 " set noic "no ignore case
-" set t_Co=256
+set t_Co=256
 
 set cursorline
 set laststatus=2
